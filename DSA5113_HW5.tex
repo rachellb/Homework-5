@@ -1,0 +1,65 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{mathtools}		% For piecewise functions
+
+
+
+\titleformat*{\section}{\normalsize\bfseries}
+\titleformat*{\subsection}{\small\bfseries}
+\titleformat*{\subsubsection}{\small\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+
+\begin{document}
+\begin{center}
+\Large DSA/ISE 5113 Advanced Analytics and Metaheuristics
+\Large Homework \#5\\
+\vspace{3mm}
+\normalsize April 19, 2020\\
+\vspace{3mm}
+\normalsize Rachel Bennett
+\end{center}
+
+
+\section*{Question 1: Simulated Annealing}
+\begin{itemize}
+\item The starting temperature was found by using the current best solution value found (15218.80, from Random Restart). This was compared with the initial temperature, which in this case had a very negative value due to penalization of solutions over the weigh limit.The initial temperature was adjusted until a 0.99 probability of acceptance was found( in this case, $T_0 =10,000,000,00$).
+\item The temperature cooling schedule was fairly basic, with each round of cooling updating like so:
+$$ T = \alpha * T$$
+Each temperature was held for a static 10 iterations before being cooled to a lower one.
+\item The search proceeded until the temperature was below 1. 
+\end{itemize}
+
+\section*{Question 2: Variable Neighborhood Search}
+Variable Neighborhood Search had far and away the best results, with a final value of 19310.70. The neighborhoods used were the 1, 2, and 3 flip neighborhoods, and the local search procedure implemented was Variable Neighborhood Descent. In order for the program to reach a solution in a reasonable amount of time, the local search was limited to run for only 1 minute per search. 
+
+\section*{Question 3: Tabu Search}
+
+
+
+\section*{Question 4: Guided Local Search}
+Guided local search was set with a dynamic lambda that updated with a given neighborhood's minimum, and tuned with an alpha of 1. The stopping criterion was 10000 iterations. This search procedure ran very well, giving a final objective value of 17784.6
+
+\begin{center}
+\begin{tabular}{ l r r r r } 
+
+ \multicolumn{5}{c}{Results} \\
+ \hline
+Algorithm & Iterations & \# Items Selected & Weight & Objective \\
+ \hline 
+Local Search (Best Improvement) & 7050 & 28 & 1499.6 & 14170.60 \\
+Local Search (First Improvement) & 3055 & 16 & 1497.1 & 6391.79\\
+Local Search (Random Restarts) & 71400 & 31 & 1494.6 & 15218.80\\
+Local Search (Random Walk) & 6635 & 19 & 1495.1 & 7801.60\\
+Local Beam Search & 12600 & 26 & 1499.3 & 11866.50\\
+Simulated Annealing & 309300 & 25 & 1495.1 & 14766.40\\
+Variable Neighborhood Search & 307280 & 31 & 1494.4 &  19310.70\\
+Tabu Search &  &  &  & place\\
+Guided Local Search &  10050 & 31 & 1493.2 & 17784.60\\
+ \hline
+\end{tabular}
+\end{center}
+
+\end{document}
