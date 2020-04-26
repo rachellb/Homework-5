@@ -37,7 +37,7 @@ Variable Neighborhood Search had far and away the best results, with a final val
 
 \section*{Question 3: Tabu Search}
 
-Tabu search was implemented with a tabu criterion of 'if an item was in the previous solution, it is now tabu'. The tenure for this was 5 iterations, and the aspiration criterion was any solution better than the current best. Long term memory was implemented to keep track of each item's residence measure, and a solution was considered more appealing by how many items in it's solution had a high residence. 
+Tabu search was implemented with a tabu criterion of 'if an item was in the previous solution, it is now tabu'. The tenure for this was 5 iterations, and the aspiration criterion was any solution better than the current best. Long term memory was implemented to keep track of each item's residence measure, and a solution was considered more appealing by how many items in it's solution had a high residence. Stopping criterion was a simplistic limit of 5000 iterations.
 
 \section*{Question 4: Guided Local Search}
 Guided local search was set with a dynamic lambda that updated with a given neighborhood's minimum, and tuned with an alpha of 1. The stopping criterion was 10000 iterations. This search procedure ran very well, giving a final objective value of 17784.6
